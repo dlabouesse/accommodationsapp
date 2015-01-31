@@ -1,0 +1,57 @@
+<h1>Advert details</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @advert.content %>
+</p>
+
+<p>
+  <b>Rent:</b>
+  <%= @advert.rent %> €
+</p>
+
+<p>
+    <b>Created by:</b>
+    <% if @advert.user_id == nil %>
+        Error! An advert must have an user !
+    <% else %>
+        <%= link_to @advert.user.complete_name, @advert.user %>
+    <% end %>
+</p>
+<!--
+<p>
+  <b>Expiration date:</b>
+  <%= @advert.expiration_date %>
+</p>
+-->
+<p>
+  <b>Property:</b>
+  <% if @advert.property_id == nil %>
+      Error! An advert must have a property !
+  <% else %>
+      <%= link_to @advert.property.address, @advert.property %>
+  <% end %>
+
+</p>
+
+<p>
+    <b>Images:</b>
+<% if @advert.images.empty? %>
+        This advert have no images.
+        <%= link_to 'Add an image.', new_image_path %>
+<% else %>
+    <% @advert.images.each do |a| %>
+        <%= image_tag(a.name, :height => "300") %>
+    <% end %>
+<% end %>
+</p>
+
+<p>
+  <b>Nb of free beds:</b>
+  <%= @advert.nb_of_free_beds %>
+</p>
+
+
+<%= link_to 'Edit', edit_advert_path(@advert) %> |
+<%= link_to 'Back', adverts_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag(@image.name, :height => "500") %>
+</p>
+
+<p>
+  <b>Advert:</b>
+  <%= link_to @image.advert.property_address, @image.advert %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

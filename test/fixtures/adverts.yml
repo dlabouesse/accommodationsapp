@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyText
+  rent: 9.99
+  user_id: 1
+  expiration_date: 2015-01-27
+  property_id: 1
+  nb_of_free_beds: 1
+
+two:
+  content: MyText
+  rent: 9.99
+  user_id: 1
+  expiration_date: 2015-01-27
+  property_id: 1
+  nb_of_free_beds: 1

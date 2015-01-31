@@ -1,0 +1,96 @@
+<h1>Property details</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address:</b>
+  <%= @property.address %>
+</p>
+<!--
+<p>
+  <b>Latitude:</b>
+  <%= @property.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @property.longitude %>
+</p>
+-->
+<p>
+  <b>Kind:</b>
+  <%= @property.kind %>
+</p>
+
+<p>
+  <b>Furnished:</b>
+  <%= @property.furnished %>
+</p>
+
+<p>
+  <b>Parking:</b>
+  <%= @property.parking %>
+</p>
+
+<p>
+  <b>Internet:</b>
+  <%= @property.internet %>
+</p>
+
+<p>
+  <b>Tv:</b>
+  <%= @property.tv %>
+</p>
+
+<p>
+  <b>Washing machine:</b>
+  <%= @property.washing_machine %>
+</p>
+
+<p>
+  <b>Dryer:</b>
+  <%= @property.dryer %>
+</p>
+
+<p>
+  <b>Dishwasher:</b>
+  <%= @property.dishwasher %>
+</p>
+
+<p>
+  <b>Nb of rooms:</b>
+  <%= @property.nb_of_rooms %>
+</p>
+
+<p>
+  <b>Nb of bathrooms:</b>
+  <%= @property.nb_of_bathrooms %>
+</p>
+
+<p>
+  <b>Living here:</b>
+  <% if @property.users.empty? %>
+          Nobody is living here.
+  <% else %>
+      <% @property.users.each do |u| %>
+      <%= link_to u.complete_name, u %>
+      <% end %>
+  <% end %>
+</p>
+
+<p>
+    <b>Want to join <%= @pronoun %>?</b>
+
+  <% if @property.advert == nil %>
+          Unfortunately, no adverts are currently referring to this property. Check back later!
+  <% else %>
+        <% if @property.advert.nb_of_free_beds > 1 %>
+            <%= @property.advert.nb_of_free_beds %> beds are available!
+        <% else %>
+            <%= @property.advert.nb_of_free_beds %> bed is available!
+        <% end %>
+      <%= link_to 'Go to the advert!', @property.advert %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_property_path(@property) %> |
+<%= link_to 'Back', properties_path %>

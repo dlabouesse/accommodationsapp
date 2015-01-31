@@ -1,0 +1,69 @@
+<%= form_for(@property) do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :kind %><br />
+    <%= f.select(:kind, options_for_select([["House", "House"],["Apartment", "Apartment"],["Other", "Other"]])) %>
+  </div>
+  <div class="field">
+    <%= f.label :furnished %><br />
+    <%= f.check_box :furnished %>
+  </div>
+  <div class="field">
+    <%= f.label :parking %><br />
+    <%= f.check_box :parking %>
+  </div>
+  <div class="field">
+    <%= f.label :internet %><br />
+    <%= f.check_box :internet %>
+  </div>
+  <div class="field">
+    <%= f.label :tv %><br />
+    <%= f.check_box :tv %>
+  </div>
+  <div class="field">
+    <%= f.label :washing_machine %><br />
+    <%= f.check_box :washing_machine %>
+  </div>
+  <div class="field">
+    <%= f.label :dryer %><br />
+    <%= f.check_box :dryer %>
+  </div>
+  <div class="field">
+    <%= f.label :dishwasher %><br />
+    <%= f.check_box :dishwasher %>
+  </div>
+  <div class="field">
+    <%= f.label :nb_of_rooms %><br />
+    <%= f.number_field :nb_of_rooms, :in => 1...10 %>
+  </div>
+  <div class="field">
+    <%= f.label :nb_of_bathrooms %><br />
+    <%= f.number_field :nb_of_bathrooms, :in => 1...10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

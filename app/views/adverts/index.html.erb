@@ -1,0 +1,49 @@
+<h1>Listing adverts</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <!--<th>Expiration date</th>-->
+    <th>Property</th>
+    <th>Rent</th>
+    <th>User</th>
+    <th>Nb of free beds</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @adverts.each do |advert| %>
+  <tr>
+      <td>
+      <% if advert.images.empty? %>
+            This advert have no images.
+      <% else %>
+            <%= image_tag(advert.images[0].name, :height => "150") %>
+      <% end %>
+    </td>
+<!--
+    <td><%= advert.expiration_date %></td>
+-->
+    <% if advert.property_id == nil %>
+        <td>Error! An advert must have a property !</td>
+    <% else %>
+        <td><%= link_to advert.property.address, advert.property %></td>
+    <% end %>
+    <td><%= advert.rent %> €</td>
+    <% if advert.user_id == nil %>
+        <td>Error! An advert must have an user !</td>
+    <% else %>
+        <td><%= link_to advert.user.complete_name, advert.user %></td>
+    <% end %>
+    <td><%= advert.nb_of_free_beds %></td>
+    <td><%= link_to 'Show', advert %></td>
+    <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
+    <td><%= button_to 'Destroy', advert, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Advert', new_advert_path %>

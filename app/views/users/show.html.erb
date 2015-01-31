@@ -1,0 +1,74 @@
+<h1><%= @user.gender %> <%= @user.complete_name %></h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <b>Biography:</b>
+  <%= @user.biography %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%= @user.dob %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @user.gender %>
+</p>
+
+<p>
+  <b>Nationality:</b>
+  <%= @user.nationality %>
+</p>
+
+<p>
+  <b>Property:</b>
+  <% if @user.property_id == nil %>
+  <td>No property yet!</td>
+  <% else %>
+  <td><%= link_to @user.property.address, @user.property %></td>
+  <% end %>
+</p>
+<% if @roommates.size == 1 %>
+    <%= @user.first_name %> is living alone.
+<% else %>
+    <%= @user.first_name %> is living with
+    <% @roommates.each do |r| %>
+        <% if r.complete_name != @user.complete_name %>
+            <%= link_to r.complete_name, r %>
+        <% end %>
+    <% end %>
+<% end %>
+
+<p>
+    <b>You want to live with <%= @user.first_name %>?</b>
+<% if @user.advert == nil %>
+        <%= @user.first_name %> has not created any adverts, 
+        <%if @advert != nil %>
+            but an advert is linked to <%= @pronoun %> property! <%= link_to 'Go to the advert!', @advert %>
+        <% else %>
+            and no any adverts are linked to <%= @pronoun %> property. Check back later!
+        <% end %>
+<% else %>
+        <%= @user.first_name %> has created an advert! <%= link_to 'Go to the advert!', @user.advert %>
+<% end %>
+</p>
+<!--
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+-->
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

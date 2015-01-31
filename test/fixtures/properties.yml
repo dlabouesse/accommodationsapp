@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address: MyText
+  latitude: 1.5
+  longitude: 1.5
+  type: 
+  furnished: false
+  parking: false
+  internet: false
+  tv: false
+  washing_machine: false
+  dryer: false
+  dishwasher: false
+  nb_of_rooms: 1
+  nb_of_bathrooms: 1
+
+two:
+  address: MyText
+  latitude: 1.5
+  longitude: 1.5
+  type: 
+  furnished: false
+  parking: false
+  internet: false
+  tv: false
+  washing_machine: false
+  dryer: false
+  dishwasher: false
+  nb_of_rooms: 1
+  nb_of_bathrooms: 1
