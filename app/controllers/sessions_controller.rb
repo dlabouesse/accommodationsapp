@@ -17,8 +17,8 @@ class SessionsController < ApplicationController
       if signed_in?
           session[:user_id]=nil
       else
-          flash[:notice]="You need to sign first"
+          flash[:notice]="You need to sign in first"
       end
-      redirect_to users_path
+      redirect_to root_path
   end
 end

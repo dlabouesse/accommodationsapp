@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+    before_filter :authorise
   # GET /images
   # GET /images.json
   def index

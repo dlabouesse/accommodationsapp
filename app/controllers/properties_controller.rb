@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+    before_filter :authorise, :except => [:index]
   # GET /properties
   # GET /properties.json
   def index

@@ -1,4 +1,5 @@
 class AdvertsController < ApplicationController
+    before_filter :authorise, :except => [:index, :show]
   # GET /adverts
   # GET /adverts.json
   def index
