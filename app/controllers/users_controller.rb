@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_filter :authorise, :except => [:index, :new, :create]
   # GET /users
   # GET /users.json
   def index
@@ -15,9 +16,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    @roommates = @user.property.users
-
-    @advert = @user.property.advert
+    if @user.property != nil
+        @roommates = @user.property.users
+        @advert = @user.property.advert
+    end
 
     if @user.gender == "Mr"
         @pronoun = "his"

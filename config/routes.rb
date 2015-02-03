@@ -1,4 +1,10 @@
 Accommodationsapp::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   resources :users
 
   resources :properties
@@ -6,6 +12,10 @@ Accommodationsapp::Application.routes.draw do
   resources :images
 
   resources :adverts
+
+  resources :sessions
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

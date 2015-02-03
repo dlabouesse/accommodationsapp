@@ -7,6 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <% flash.each do |key, value| %>
+    <div class="flash_<%= key %>"><%= key %> : <%= value %></div>
+    <% end %>
+
+    <nav>
+    <ul>
+        <% if !signed_in? %>
+            <li><%= link_to "Sign in", signin_path %></li>
+        <% else %>
+            <li>Welcome <%= @current_user.first_name %></li>
+            <li><%= link_to "Sign out", signout_path %></li>
+        <% end %>
+
+        <!--<li> link_to "Home page", root_path </li>-->
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Properties", properties_path %></li>
+        <li><%= link_to "Adverts", adverts_path %></li>
+        <li><%= link_to "Images", images_path %></li>
+    </ul>
+
+</nav>
 
 <%= yield %>
 

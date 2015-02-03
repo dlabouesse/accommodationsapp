@@ -32,28 +32,30 @@
 </p>
 
 <p>
-  <b>Property:</b>
-  <% if @user.property_id == nil %>
-  <td>No property yet!</td>
-  <% else %>
-  <td><%= link_to @user.property.address, @user.property %></td>
-  <% end %>
-</p>
-<% if @roommates.size == 1 %>
-    <%= @user.first_name %> is living alone.
-<% else %>
-    <%= @user.first_name %> is living with
-    <% @roommates.each do |r| %>
-        <% if r.complete_name != @user.complete_name %>
-            <%= link_to r.complete_name, r %>
+    <b>Property:</b>
+
+    <% if @user.property_id == nil %>
+        <td>No property yet!</td>
+    <% else %>
+        <td><%= link_to @user.property.address, @user.property %></td>
+
+        <% if @roommates.size == 1 %>
+            <%= @user.first_name %> is living alone.
+        <% else %>
+            <%= @user.first_name %> is living with
+            <% @roommates.each do |r| %>
+                <% if r.complete_name != @user.complete_name %>
+                    <%= link_to r.complete_name, r %>
+                <% end %>
+            <% end %>
         <% end %>
     <% end %>
-<% end %>
+</p>
 
 <p>
     <b>You want to live with <%= @user.first_name %>?</b>
 <% if @user.advert == nil %>
-        <%= @user.first_name %> has not created any adverts, 
+        <%= @user.first_name %> has not created any adverts,
         <%if @advert != nil %>
             but an advert is linked to <%= @pronoun %> property! <%= link_to 'Go to the advert!', @advert %>
         <% else %>
