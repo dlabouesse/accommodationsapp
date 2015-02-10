@@ -1,10 +1,10 @@
 Accommodationsapp::Application.routes.draw do
 
-  get "admins/index"
+  get "admins/index",       :to =>  'admins#index'
 
-  get "admins/add"
+  get "admins/add",         :to =>  'admins#add'
 
-  get "admins/remove"
+  get "admins/remove",      :to =>  'admins#remove'
 
   get "pages/home"
 
@@ -28,8 +28,6 @@ Accommodationsapp::Application.routes.draw do
 
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-
-  match '/admins',  :to =>  'admins#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
