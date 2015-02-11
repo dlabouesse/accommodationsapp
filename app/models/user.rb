@@ -8,7 +8,17 @@ class User < ActiveRecord::Base
 
     validates_confirmation_of :password_digest
 
+    before_create :default_values
+
     def complete_name
         "#{first_name} #{last_name}"
     end
+
+    private
+
+    def default_values
+        self.admin = false
+        true
+    end
+
 end

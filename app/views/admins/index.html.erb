@@ -1,26 +1,30 @@
 <h1>Admins manager panel</h1>
-<h2>List of current admins</h2>
 <% if @admins.empty? %>
-    Error, please contact the webmaster.
+    <h2>Error, please contact the webmaster!</h2>
 <% elsif  @admins.size == 1 %>
-    There is no other admins than you.
+    <h2>There is no other admins than you.</h2>
 <% else %>
+<h2>List of other admins than you</h2>
 <table>
     <tr>
       <th>Gender</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Dob</th>
+      <th>Email</t>
       <th></th>
     </tr>
     <% @admins.each do |admin| %>
+    <% if admin.id != session[:user_id] %>
       <tr>
         <td><%= admin.gender %></td>
         <td><%= admin.first_name %></td>
         <td><%= admin.last_name %></td>
         <td><%= admin.dob %></td>
+        <td><%= admin.email %></td>
         <td><%= link_to 'Remove admin rights', remove_admin_path(:id => admin.id) %></td>
       </tr>
+     <% end %>
     <% end %>
 </table>
 <% end %>

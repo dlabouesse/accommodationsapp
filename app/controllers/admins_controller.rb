@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+    before_filter :authoriseAdmin
   def index
       @admins = User.find_all_by_admin(true)
       @users = User.find_all_by_admin(false)
