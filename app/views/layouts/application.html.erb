@@ -2,46 +2,69 @@
 <html>
 <head>
   <title>Accommodationsapp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <% flash.each do |key, value| %>
-    <div class="flash_<%= key %>"><%= key %> : <%= value %></div>
-    <% end %>
 
-    <nav>
-    <ul>
-        <% if !signed_in? %>
-            <li><%= link_to "Sign in", signin_path %></li>
-        <% else %>
-            <li>Welcome <%= @current_user.first_name %></li>
-            <li><%= link_to "My account", @current_user %></li>
-            <li><%= link_to "Sign out", signout_path %></li>
-        <% end %>
+<% flash.each do |key, value| %>
+<div class="flash_message">
+    <div class="container">
+        <div class="row">
+            <p class="col-md-8 col-md-offset-2">
+                <div class="flash_<%= key %>"><%= key %> : <%= value %></div>
+            </p>
+        </div>
+    </div>
+</div>
+<% end %>
 
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Adverts", adverts_path %></li>
-        <li><%= link_to "Properties", properties_path %></li>
-        <li><%= link_to "Users", users_path %></li>
+<header class="page-header">
+    <h1>AccomodationsApp</h1>
+</header>
+
+<div class="container">
+    <div class="row">
+        <nav>
+            <ul>
+                <% if !signed_in? %>
+                    <li><%= link_to "Sign in", signin_path %></li>
+                <% else %>
+                    <li>Welcome <%= @current_user.first_name %></li>
+                    <li><%= link_to "My account", @current_user %></li>
+                    <li><%= link_to "Sign out", signout_path %></li>
+                <% end %>
+
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Adverts", adverts_path %></li>
+                <li><%= link_to "Properties", properties_path %></li>
+                <li><%= link_to "Users", users_path %></li>
 
 
-        <% if signed_in? && @current_user.admin == true %>
-            <li><%= link_to "Images", images_path %></li>
-            <li><%= link_to "Admins", admins_index_path %></li>
-        <% end %>
+                <% if signed_in? && @current_user.admin == true %>
+                    <li><%= link_to "Images", images_path %></li>
+                    <li><%= link_to "Admins", admins_index_path %></li>
+                <% end %>
 
-    </ul>
+            </ul>
+        </nav>
+    </div>
 
-</nav>
-
+    <div class="row">
 <%= yield %>
+    </div>
+
+</div>
+
 <footer>
     <p>
         Created by <a href="mailto:dimitri.labouesse@mydit.ie">Dimitri Labouesse</a> as a school project at DIT</a>.
         This project is available on <a href="https://github.com/dlabouesse/accommodationsapp.git">Github</a>.
     </p>
 </footer>
+
 </body>
 </html>

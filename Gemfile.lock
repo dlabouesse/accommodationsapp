@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.1)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    adroit-age (2.0.0)
     arel (3.0.3)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -103,6 +104,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  adroit-age
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails

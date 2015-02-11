@@ -25,7 +25,7 @@
     <!--<td><%= user.email %></td>
     <td><%= user.phone %></td>-->
     <!--<td><%= user.biography %></td>-->
-    <td><%= user.dob %></td>
+    <td><%= user.dob.find_age %> years old</td>
     <td><%= user.nationality %></td>
     <% if user.property_id == nil %>
         <td>No property</td>
@@ -34,7 +34,7 @@
     <% end %>
     <!--<td><%= user.password_digest %></td>-->
     <td><%= link_to 'Show', user %></td>
-    
+
     <% if signed_in? && @current_user.admin == true %>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= button_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
