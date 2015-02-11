@@ -1,4 +1,51 @@
-<h1>Admins#index</h1>
-<%= link_to "Add", admins_add_path %>
-<%= link_to "Remove", admins_remove_path %>
+<h1>Admins manager panel</h1>
+<h2>List of current admins</h2>
+<% if @admins.empty? %>
+    Error, please contact the webmaster.
+<% elsif  @admins.size == 1 %>
+    There is no other admins than you.
+<% else %>
+<table>
+    <tr>
+      <th>Gender</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Dob</th>
+      <th></th>
+    </tr>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.gender %></td>
+        <td><%= admin.first_name %></td>
+        <td><%= admin.last_name %></td>
+        <td><%= admin.dob %></td>
+        <td><%= link_to 'Remove admin rights', remove_admin_path(:id => admin.id) %></td>
+      </tr>
+    <% end %>
+</table>
+<% end %>
+
+<h2>List of current users</h2>
+<% if @users==nil %>
+    Error, please contact the administrator.
+<% else %>
+<table>
+    <tr>
+      <th>Gender</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Dob</th>
+      <th></th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.gender %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.dob %></td>
+        <td><%= link_to 'Add admin rights', add_admin_path(:id => user.id) %></td>
+      </tr>
+    <% end %>
+</table>
+<% end %>
 <p>Find me in app/views/admins/index.html.erb</p>
