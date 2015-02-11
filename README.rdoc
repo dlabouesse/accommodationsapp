@@ -1,1 +1,5 @@
-This web application is a system to post and share adverts for accommodations. An advert can be created only by a registered user, and an advert refer to a property which has a type.
+This web application is a network which make easier the sharing of accommodations. The users post in which property they are living and the can post adverts in order to find new rommates. Only the registered users can create new properties and new adverts.
+An user is living in only one property and can create only one advert linked to this property.
+An advert is created by one user, is referring to one property and has many pictures.
+A property can be shared with many users but can not have more than one advert.
+An image is linked to only one advert.
