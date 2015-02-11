@@ -36,12 +36,14 @@
     <td><%= property.nb_of_rooms %></td>
     <td><%= property.nb_of_bathrooms %></td>
     <td><%= link_to 'Show', property %></td>
-    <td><%= link_to 'Edit', edit_property_path(property) %></td>
-    <td><%= button_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
+
+    <% if signed_in? && @current_user.admin == true %>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= button_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+    
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Property', new_property_path %>

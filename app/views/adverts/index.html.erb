@@ -38,12 +38,12 @@
     <% end %>
     <td><%= advert.nb_of_free_beds %></td>
     <td><%= link_to 'Show', advert %></td>
-    <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
-    <td><%= button_to 'Destroy', advert, confirm: 'Are you sure?', method: :delete %></td>
+
+    <% if signed_in? && @current_user.admin == true %>
+        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
+        <td><%= button_to 'Destroy', advert, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+    
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Advert', new_advert_path %>
