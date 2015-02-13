@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", "token-input" %>
+  <%= javascript_include_tag 'jquery-1.6.2', 'application' %>
+  <%= javascript_include_tag "jquery.tokeninput" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

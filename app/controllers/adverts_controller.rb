@@ -7,7 +7,7 @@ class AdvertsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @adverts }
+      format.json { render json: @adverts.map(&:attributes) }
     end
   end
 

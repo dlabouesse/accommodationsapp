@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function () {
+  $('#author_tokens').tokenInput('/users.json', { crossDomain: false, propertyToSearch: "first_name" });
+});
