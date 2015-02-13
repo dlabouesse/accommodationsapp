@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require_tree .
 $(function () {
-  $('#author_tokens').tokenInput('/users.json', { crossDomain: false, propertyToSearch: "first_name" });
+  $('#user_tokens').tokenInput('/users.json', { crossDomain: false, propertyToSearch: "complete_name", minChars: 3 });
 });

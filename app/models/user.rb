@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
 
     before_create :default_values
 
+    def as_json(options={})
+        super.as_json(options).merge({:complete_name => complete_name})
+    end
+
     def complete_name
         "#{first_name} #{last_name}"
     end
