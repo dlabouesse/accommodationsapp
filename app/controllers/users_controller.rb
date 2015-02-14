@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    #@users = User.all
+    @users = User.where("first_name like ? OR last_name like ?", "%#{params[:q]}%", "%#{params[:q]}%")
 
     respond_to do |format|
       format.html # index.html.erb
