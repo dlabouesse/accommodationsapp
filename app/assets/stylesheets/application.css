@@ -11,36 +11,64 @@
  *= require_self
  *= require_tree .
 */
-a
-{
-    color : #424242;
+body {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.5em;
 }
-nav ul li
-{
-    display: inline-block;
-    margin-right : 20px;
-    margin-left : 20px;
-    color : #424242;
-}
-nav ul li :hover
-{
-    background-color: #424242;
-    color: white;
-}
-nav ul
-{
-    border-bottom:1px solid #D8D8D8;
-    border-top:1px solid #D8D8D8;
-    padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
+
+.navbar-inverse {
+    background: #2F9010;
+    background: -moz-linear-gradient(top,  #66C249 0%, #2F9010 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#66C249), color-stop(100%,#2F9010)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #66C249 0%,#2F9010 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #66C249 0%,#2F9010 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #66C249 0%,#2F9010 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #66C249 0%,#2F9010 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66C249', endColorstr='#2F9010',GradientType=0 ); /* IE6-9 */
     font-variant: small-caps;
-    font-size: 18px;
 }
-footer
-{
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+    color: white;
+    font-family: 'Amaranth', sans-serif;
+    font-size: 1.2em;
+}
+
+.navbar-fixed-top {
+    border-width: 0;
+}
+body {
+    padding-top: 50px;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+h2 {
+    color: #46B223;
+    font-size: 20px;
+    padding-left: 5%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    padding-left: 20px;
+}
+
+a {
+    color: #FF7400;
+}
+
+footer {
+    margin-top: 50px;
     border-top: 1px solid #D8D8D8;
     color: grey;
     font-style: italic;
 }
+
+/*
+div
+{
+    border: 1px solid black;
+}
+*/

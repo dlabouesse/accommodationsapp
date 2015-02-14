@@ -1,16 +1,29 @@
-<h1>Let me help you to find an accommodation or a roommate!</h1>
-<p><strong>This web service is totally free of charges!</strong></p>
-<h2>Looking for somebody?</h2>
-<p>Use the field below to search for an user.<br />
-    <em>Note that you must be registered to display the users' profile.</em></p>
-<form>
-    <label for="user_tokens">User's name:</label>
-    <input type="text" name="user_tokens" id="user_tokens" >
-</form>
-<h2>Advert search section</h2>
-<p><em>This section is to allow visitors to search adverts.</em></p>
-<h2>Is it you first visit?</h2>
-<p>
-    You can start by looking over the adverts or you can also search for your fiends or for properties.<br />
-    In order to display users' profile or the details of a property, you must be registered. <%= link_to 'Create my account now!', new_user_path %>
-</p>
+<div class="row">
+    <h1>Let me help you to find an accommodation or a roommate!</h1>
+    <p><strong>This web service is totally free of charges!</strong></p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Looking for somebody?</h2>
+        <p>Use the field below to search for an user.<br />
+        <em>Note that you must be registered to display the users' profile.</em></p>
+        <form>
+            <label for="user_tokens">User's name:</label>
+            <input type="text" name="user_tokens" id="user_tokens" >
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Advert search section</h2>
+        <p><em>This section is to allow visitors to search adverts.</em></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Is it you first visit?</h2>
+        <p>
+            You can start by looking over the adverts or you can also search for your fiends or for properties.<br />
+            In order to display users' profile or the details of a property, you must be registered. <%= link_to 'Create my account now!', new_user_path %>
+        </p>
+    </div>
+</div>
