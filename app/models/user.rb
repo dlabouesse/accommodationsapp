@@ -4,7 +4,17 @@ class User < ActiveRecord::Base
 
     has_secure_password
 
-    validates_uniqueness_of :email
+    validates_presence_of :first_name, :last_name, :email, :nationality
+    validates :email,
+                uniqueness: true,
+                format: { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
+    validates :last_name,
+                length: { minimum: 2, maximum: 255}
+    validates :first_name,
+                length: { minimum: 2, maximum: 255}
+    validates :nationality,
+                length: { minimum: 2, maximum: 255}
+
 
     validates_confirmation_of :password_digest
 

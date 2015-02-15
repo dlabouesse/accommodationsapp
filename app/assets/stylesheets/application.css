@@ -101,4 +101,15 @@ div
 {
     border: 1px solid black;
 }
-*/
+/* user form view*/
+.field label {
+    width: 95px;
+}
+.field textarea {
+    width: 100%;
+    height: 200px;
+}
+.center {
+    margin-top: 20px;
+    text-align: center;
+}
