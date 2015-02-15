@@ -22,9 +22,7 @@ Accommodationsapp::Application.configure do
       :domain               =>  'www.example.com',
       :authentication       =>  :plain,
       :user_name            =>
-
       :password             =>
-
   }
 
   # Print deprecation notices to the Rails logger
