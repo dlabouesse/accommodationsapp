@@ -13,17 +13,12 @@
 
 <p>
   <b>Biography:</b>
-  <%= @user.biography %>
+  <%= simple_format(@user.biography) %>
 </p>
 
 <p>
-  <b>Dob:</b>
-  <%= @user.dob %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
+  <b>Age:</b>
+  <%= @user.dob.find_age %> years old
 </p>
 
 <p>

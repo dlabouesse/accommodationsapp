@@ -3,7 +3,7 @@
 
 <p>
   <b>Content:</b>
-  <%= @advert.content %>
+  <%= simple_format(@advert.content) %>
 </p>
 
 <p>
@@ -52,6 +52,7 @@
   <%= @advert.nb_of_free_beds %>
 </p>
 
-
-<%= link_to 'Edit', edit_advert_path(@advert) %> |
-<%= link_to 'Back', adverts_path %>
+<% if signed_in? && @advert.user_id == @current_user.id %>
+    <%= link_to 'Edit', edit_advert_path(@advert) %><br />
+    <%= link_to 'Delete my advert', @advert, confirm: 'Are you sure?', method: :delete %>
+<% end %>

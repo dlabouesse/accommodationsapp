@@ -14,6 +14,7 @@
 body {
     font-family: 'Helvetica', sans-serif;
     font-size: 1.5em;
+    padding-top: 50px;
 }
 
 .navbar-inverse {
@@ -47,9 +48,6 @@ body {
 
 .navbar-fixed-top {
     border-width: 0;
-}
-body {
-    padding-top: 50px;
 }
 
 p {
@@ -112,4 +110,11 @@ div
 .center {
     margin-top: 20px;
     text-align: center;
+}
+/* signin view */
+.signin input {
+    width: 300px;
+}
+.submit {
+    padding-left: 200px;
 }
