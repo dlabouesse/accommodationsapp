@@ -1,3 +1,4 @@
+= Description
 This web application is a network which make easier the sharing of accommodations. The users post in which property they are living and the can post adverts in order to find new rommates. Only the registered users can create new properties and new adverts.
 
 An user is living in only one property and can create only one advert linked to this property.
@@ -7,3 +8,13 @@ An advert is created by one user, is referring to one property and has many pict
 A property can be shared with many users but can not have more than one advert.
 
 An image is linked to only one advert.
+
+== Predefined accounts
+Only an admin account can add an other admin by adding the rights to an user.
+For the convenience of tests, two special have been created.
+- Admin account :
+    mail : admin@mail.ie
+    password : admin
+- User account :
+    mail : user@mail.ie
+    password : user

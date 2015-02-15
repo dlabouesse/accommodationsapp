@@ -90,7 +90,7 @@ footer {
     border-radius: 3px;
 }
 
-.flash_message p.flash_success {
+.flash_message p.flash_success, .flash_message p.flash_notice {
     background-color: #FF7D12;
     background: linear-gradient(to bottom,  #FF7D12 0%,#FF9A47 100%); /* W3C */
 }
