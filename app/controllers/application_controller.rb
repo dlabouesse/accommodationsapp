@@ -17,14 +17,6 @@ class ApplicationController < ActionController::Base
       end
   end
 
-  def has_property?
-      if @current_user.property != nil
-          return
-      else
-          @advert = @current_user.property.advert
-      end
-  end
-
   private
 
   def store_location
