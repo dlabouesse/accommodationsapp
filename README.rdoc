@@ -18,3 +18,7 @@ For the convenience of tests, two special have been created.
 - User account :
     mail : user@mail.ie
     password : user
+
+= Installation
+Some information in the config file are missing in order to keep my data private.
+- The config/environments/development.rb file has to be filled with your email credentials.

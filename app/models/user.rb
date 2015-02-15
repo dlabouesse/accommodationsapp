@@ -15,8 +15,9 @@ class User < ActiveRecord::Base
     validates :nationality,
                 length: { minimum: 2, maximum: 255}
 
-
     validates_confirmation_of :password_digest
+
+    validate :dob_cannot_be_in_the_future
 
     before_create :default_values
 
@@ -33,6 +34,12 @@ class User < ActiveRecord::Base
     def default_values
         self.admin = false
         true
+    end
+
+    def dob_cannot_be_in_the_future
+      if dob.present? && dob > Date.today
+        errors.add(:dob, "can't be in the future")
+      end
     end
 
 end

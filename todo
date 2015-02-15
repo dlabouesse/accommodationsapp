@@ -1,0 +1,12 @@
+TODO Prevent user to create an account when already connected.
+TODO Prevent user to create an new advert when one is already created.
+TODO Use the pluralize method.
+TODO Add validation to properties, adverts, images.
+TODO Create the about page.
+TODO Remove the user field from advert creation.
+TODO Prevent user to create an advert without property. (Advert : Content, price and n° of beds).
+TODO Add the property creator to the navbar (same as advert).
+TODO Property creator (with quick search for current properties or roomates).
+TODO Allow an user to leave a property.
+TODO A property must be destroyed if nobody live here.
+TODO Layouts (properties and adverts).
