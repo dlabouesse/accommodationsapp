@@ -20,20 +20,6 @@
     <%= f.number_field :rent, :in => 1...10000 %> €
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.collection_select :user_id, User.all, :id, :complete_name %>
-  </div>
-  <!--
-  <div class="field">
-    <%= f.label :expiration_date %><br />
-    <%= f.date_select :expiration_date %>
-  </div>
--->
-  <div class="field">
-    <%= f.label :property_id %><br />
-    <%= f.collection_select :property_id, Property.all, :id, :address %>
-  </div>
-  <div class="field">
     <%= f.label :nb_of_free_beds %><br />
     <%= f.number_field :nb_of_free_beds, :in => 1...10 %>
   </div>

@@ -42,6 +42,8 @@ class AdvertsController < ApplicationController
   # POST /adverts.json
   def create
     @advert = Advert.new(params[:advert])
+    @advert.user_id = @current_user.id
+    @advert.property_id=@current_user.property_id
 
     respond_to do |format|
       if @advert.save

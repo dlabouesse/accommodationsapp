@@ -53,8 +53,13 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       if @property.save
-        format.html { redirect_to @property, notice: 'Property was successfully created.' }
-        format.json { render json: @property, status: :created, location: @property }
+          @current_user.property_id = @property.id
+          if @current_user.save
+              format.html { redirect_to @property, notice: 'Property was successfully created.' }
+              format.json { render json: @property, status: :created, location: @property }
+          end
+          format.html { render action: "new" }
+          format.json { render json: @property.errors, status: :unprocessable_entity }
       else
         format.html { render action: "new" }
         format.json { render json: @property.errors, status: :unprocessable_entity }
@@ -82,6 +87,11 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1.json
   def destroy
     @property = Property.find(params[:id])
+    @users = User.where("property_id IS ?", params[:id])
+    @users.each do |user|
+        user.property_id =nil
+        user.save
+    end
     @property.destroy
 
     respond_to do |format|
