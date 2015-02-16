@@ -66,5 +66,6 @@
   <%= @user.password_digest %>
 </p>
 -->
-
-<%= link_to 'Edit my profile', edit_user_path(@user) %>
+<% if signed_in? && @current_user.id == @user.id %>
+    <%= link_to 'Edit my profile', edit_user_path(@user) %>
+<% end %>
