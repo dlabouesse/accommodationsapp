@@ -1,10 +1,11 @@
+TODO All remaining layouts.
 
 TODO Property creator (with quick search for current properties or roomates).
 
 TODO Allow an user to leave a property.
 TODO A property must be destroyed if nobody live here.
 
-TODO Add validation to properties, adverts, images.
+TODO add uploader for images
 
 TODO Prevent user to create an advert without property. (Advert : Content, price and n° of beds).
 
@@ -14,4 +15,3 @@ TODO Prevent user to create an account when already connected.
 
 
 TODO Create the about page.
-TODO All remaining layouts.
