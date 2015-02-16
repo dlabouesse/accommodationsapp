@@ -83,11 +83,7 @@
   <% if @property.advert == nil %>
           Unfortunately, no adverts are currently referring to this property. Check back later!
   <% else %>
-        <% if @property.advert.nb_of_free_beds > 1 %>
-            <%= @property.advert.nb_of_free_beds %> beds are available!
-        <% else %>
-            <%= @property.advert.nb_of_free_beds %> bed is available!
-        <% end %>
+        <%= pluralize(@property.advert.nb_of_free_beds, 'bed is', 'beds are') %> available!
       <%= link_to 'Go to the advert!', @property.advert %>
   <% end %>
 </p>

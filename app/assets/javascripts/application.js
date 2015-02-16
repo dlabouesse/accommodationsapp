@@ -23,14 +23,4 @@ $(function () {
             onAdd: function (item) { window.location.href = "users/"+item.id; }
         }
     );
-
-    $('#advert_tokens').tokenInput('/adverts.json',
-        {
-            crossDomain: false,
-            propertyToSearch: "content",
-            minChars: 3,
-            hintText: "Type in at least 3 characters",
-            onAdd: function (item) { window.location.href = "adverts/"+item.id; }
-        }
-      );
 });

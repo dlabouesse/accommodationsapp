@@ -1,13 +1,23 @@
-= Description
-This web application is a network which make easier the sharing of accommodations. The users post in which property they are living and the can post adverts in order to find new rommates. Only the registered users can create new properties and new adverts.
+= AcomMate
 
-An user is living in only one property and can create only one advert linked to this property.
+== Description
 
-An advert is created by one user, is referring to one property and has many pictures.
+This web application is a network which make easier the sharing of accommodations. The users post in which property they are living and they can post adverts in order to find new rommates. Only the registered users can create new properties and new adverts.
 
-A property can be shared with many users but can not have more than one advert.
+== Functionalities
 
-An image is linked to only one advert.
+Visitors can search for users, properties or adverts, but they can see the details of the adverts only.
+In order to display users' profile and the details of a property, they must be registered.
+
+Once registered, the users can add their property, by creating a new one, or by searching for a existing (in the case of the property has already been created on the website).
+Once the property linked to the users' profile, if an advert is currently referring to this property they can edit or delete it. Or they can create a new one in the case of no adverts are already existing.
+
+Any user living in a preperty can so edit or delete the referring advert.
+If a property doesn't have user linving inside anymore, the property is removed from the website.
+
+= Installation
+Some information in the config file are missing in order to keep my data private.
+- The config/environments/development.rb file has to be filled with your email credentials.
 
 == Predefined accounts
 Only an admin account can add an other admin by adding the rights to an user.
@@ -19,6 +29,11 @@ For the convenience of tests, two special have been created.
     mail : user@mail.ie
     password : user
 
-= Installation
-Some information in the config file are missing in order to keep my data private.
-- The config/environments/development.rb file has to be filled with your email credentials.
+== Entities Relationship
+ An user is living in one property and can create one advert linked to this property.
+
+ An advert is created by one user, is referring to one property and has many pictures.
+
+ A property can be shared with many users but can not have more than one advert.
+
+ An image is linked to only one advert.
