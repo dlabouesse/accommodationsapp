@@ -26,6 +26,8 @@ Accommodationsapp::Application.routes.draw do
   match '/signout' => 'sessions#destroy'
   match '/admins/add/:id' => 'admins#add', :as => :add_admin
   match '/admins/remove/:id' => 'admins#remove', :as  => :remove_admin
+  match 'properties/link/:id' => 'properties#link', :as => :link_property
+  match 'properties/unlink/:id' => 'properties#unlink', :as => :unlink_property
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

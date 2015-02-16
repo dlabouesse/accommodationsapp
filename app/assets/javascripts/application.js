@@ -23,4 +23,13 @@ $(function () {
             onAdd: function (item) { window.location.href = "users/"+item.id; }
         }
     );
+    $('#roommate_tokens').tokenInput('/users.json',
+        {
+            crossDomain: false,
+            propertyToSearch: "complete_name",
+            minChars: 3,
+            hintText: "Type in at least 3 characters",
+            onAdd: function (item) { window.location.href = "link/"+item.property_id; }
+        }
+    );
 });

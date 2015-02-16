@@ -99,4 +99,28 @@ class PropertiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def link
+      @current_user.property_id = params[:id]
+      if @current_user.save
+          flash[:notice]="Your property is now well linked to your account!"
+          redirect_to @current_user
+      else
+          flash[:notice]="An error occured, please try again"
+          redirect_to @current_user
+      end
+  end
+
+  def unlink
+      @current_user.property_id = nil
+      @current_user.save
+      @roommates = User.where("property_id IS ?", params[:id])
+      if @roommates.empty?
+          @property = Property.find(params[:id])
+          @property.destroy
+      end
+      flash[:notice]="Your leaving is well saved!"
+      redirect_to @current_user
+  end
+
 end

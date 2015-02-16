@@ -89,5 +89,6 @@
 </p>
 
 <% if signed_in? && @current_user.property_id == @property.id %>
-    <%= link_to 'Edit my property', edit_property_path(@property) %>
+    <%= link_to 'Edit my property', edit_property_path(@property) %><br />
+    <%= link_to 'Leave this property', unlink_property_path(:id => @property.id) %>
 <% end %>
