@@ -2,7 +2,7 @@ TODO All remaining layouts.
 
 TODO add uploader for images
 
-TODO Add geocoder feature
+TODO Improve geocoder by showing available properties. (Non-static picture?)
 
 TODO Prevent user to create an advert without property. (Advert : Content, price and n° of beds).
 TODO Prevent users to create an new advert when one is currently referring to their property.

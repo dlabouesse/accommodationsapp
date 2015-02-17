@@ -6,4 +6,7 @@ class Property < ActiveRecord::Base
 
     validates :nb_of_rooms, numericality: {only_integer: true, greater_than: 0}
     validates :nb_of_bathrooms, numericality: {only_integer: true, greater_than: 0}
+
+    geocoded_by :address
+    after_validation :geocode
 end
