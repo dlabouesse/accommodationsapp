@@ -118,3 +118,17 @@ div
 .submit {
     padding-left: 200px;
 }
+
+.address_field textarea {
+    height: 100px;
+}
+.property_fiel{
+    padding-right: 0px;
+}
+.property_fiel label {
+    width: auto;
+    word-break:break-all;
+}
+#property_nb_of_rooms, #property_nb_of_bathrooms{
+    width: 50px;
+}

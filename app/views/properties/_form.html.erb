@@ -11,59 +11,62 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field address_field">
     <%= f.label :address %><br />
     <%= f.text_area :address %>
   </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
+  <div class="row">
+      <div class="property_fiel col-xs-4">
+        <%= f.label :kind %>
+        <%= f.select(:kind, options_for_select([["House", "House"],["Apartment", "Apartment"],["Other", "Other"]])) %>
+      </div>
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :furnished %>
+        <%= f.label :furnished %>
+      </div>
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :parking %>
+          <%= f.label :parking %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
+  <div class="row">
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :internet %>
+          <%= f.label :internet %>
+      </div>
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :tv %>
+          <%= f.label :tv %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :kind %><br />
-    <%= f.select(:kind, options_for_select([["House", "House"],["Apartment", "Apartment"],["Other", "Other"]])) %>
+  <div class="row">
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :washing_machine %>
+          <%= f.label :washing_machine, 'Washer' %>
+      </div>
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :dryer %>
+          <%= f.label :dryer %>
+      </div>
+      <div class="property_fiel col-xs-4">
+          <%= f.check_box :dishwasher %>
+          <%= f.label :dishwasher %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :furnished %><br />
-    <%= f.check_box :furnished %>
+
+  <div class="row">
+      <div class="property_fiel col-xs-6">
+        <%= f.label :nb_of_rooms %>
+        <%= f.number_field :nb_of_rooms, :in => 1...10 %>
+      </div>
+      <div class="property_fiel col-xs-6">
+        <%= f.label :nb_of_bathrooms %>
+        <%= f.number_field :nb_of_bathrooms, :in => 1...10 %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :parking %><br />
-    <%= f.check_box :parking %>
-  </div>
-  <div class="field">
-    <%= f.label :internet %><br />
-    <%= f.check_box :internet %>
-  </div>
-  <div class="field">
-    <%= f.label :tv %><br />
-    <%= f.check_box :tv %>
-  </div>
-  <div class="field">
-    <%= f.label :washing_machine %><br />
-    <%= f.check_box :washing_machine %>
-  </div>
-  <div class="field">
-    <%= f.label :dryer %><br />
-    <%= f.check_box :dryer %>
-  </div>
-  <div class="field">
-    <%= f.label :dishwasher %><br />
-    <%= f.check_box :dishwasher %>
-  </div>
-  <div class="field">
-    <%= f.label :nb_of_rooms %><br />
-    <%= f.number_field :nb_of_rooms, :in => 1...10 %>
-  </div>
-  <div class="field">
-    <%= f.label :nb_of_bathrooms %><br />
-    <%= f.number_field :nb_of_bathrooms, :in => 1...10 %>
-  </div>
-  <div class="actions">
+
+
+  <div class="row actions center">
     <%= f.submit %>
   </div>
 <% end %>

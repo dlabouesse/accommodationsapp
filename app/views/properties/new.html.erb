@@ -1,15 +1,21 @@
-<h1>Your property</h1>
-<h2>Search for my property</h2>
-<p>
-    Please use the search box below to search for your property.<br />
-    Enter the name of one of your roommates to automatically link the property to your account!
-</p>
-<form>
-    <label for="roommate_tokens">User's name:</label>
-    <input type="text" name="roommate_tokens" id="roommate_tokens" >
-</form>
-<h2>New property</h2>
+<div class="row">
+    <h1 class="col-xs-12">Your property</h1>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Search for my property</h2>
+        <p>
+            Please use the search box below to search for your property.<br />
+            Enter the name of one of your roommates to automatically link the property to your account!
+        </p>
+        <form>
+            <label for="roommate_tokens">User's name:</label>
+            <input type="text" name="roommate_tokens" id="roommate_tokens" >
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>New property</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', properties_path %>
+        <%= render 'form' %>
+    </div>
+</div>
