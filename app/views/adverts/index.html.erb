@@ -15,12 +15,12 @@
                             <% if advert.property_id == nil %>
                                 <td>Error! An advert must have a property !</td>
                             <% else %>
-                                <td><%= link_to advert.property.address, advert.property %></td>
+                                <td><%= link_to advert.property.address, advert %></td>
                             <% end %>
                         </div>
                         <div class="banner_bottom">
                             <div class="price">
-                                <strong><%= advert.rent %> €</strong>
+                                <%= pluralize(advert.nb_of_free_beds, 'bed') %> - <strong><%= advert.rent %> €</strong>
                             </div>
                             <div class="author">
                                 <% if advert.user_id == nil %>

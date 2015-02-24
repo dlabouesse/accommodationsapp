@@ -137,6 +137,7 @@ div
 .advert{
     height: 250px;
     border: 1px solid #CCCCCC;
+    margin-bottom: 25px;
 }
 .advert .banner_top,.advert .banner_bottom
 {
@@ -158,4 +159,15 @@ div
 .advert .price
 {
     float: right;
+}
+/* advert show view */
+.advert_show_image
+{
+    max-height: 600px;
+    overflow: auto;
+}
+.advert_show_image img
+{
+    width: 100%;
+    margin: 5px;
 }
