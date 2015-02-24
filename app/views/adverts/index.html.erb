@@ -1,49 +1,36 @@
-<h1>Listing adverts</h1>
+<div class="row">
+    <h1 class="col-xs-12">Listing adverts</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Image</th>
-    <!--<th>Expiration date</th>-->
-    <th>Property</th>
-    <th>Rent</th>
-    <th>User</th>
-    <th>Nb of free beds</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+    <% @adverts.each do |advert| %>
+        <div class="col-sm-6 col-md-4">
 
-<% @adverts.each do |advert| %>
-  <tr>
-      <td>
-      <% if advert.images.empty? %>
-            This advert have no images.
-      <% else %>
-            <%= image_tag(advert.images[0].name, :height => "150") %>
-      <% end %>
-    </td>
-<!--
-    <td><%= advert.expiration_date %></td>
--->
-    <% if advert.property_id == nil %>
-        <td>Error! An advert must have a property !</td>
-    <% else %>
-        <td><%= link_to advert.property.address, advert.property %></td>
+                <% if advert.images.empty? %>
+                    <div style="background: url(/assets/no-photo.png) no-repeat center;  background-size: 45%;" class="advert">
+                <% else %>
+                    <div style="background: url(/assets/<%= advert.images[0].name %>) no-repeat center;  background-size: cover;" class="advert">
+                <% end %>
+                        <div class="banner_top">
+                            <% if advert.property_id == nil %>
+                                <td>Error! An advert must have a property !</td>
+                            <% else %>
+                                <td><%= link_to advert.property.address, advert.property %></td>
+                            <% end %>
+                        </div>
+                        <div class="banner_bottom">
+                            <div class="price">
+                                <strong><%= advert.rent %> €</strong>
+                            </div>
+                            <div class="author">
+                                <% if advert.user_id == nil %>
+                                    <td>Error! An advert must have an user !</td>
+                                <% else %>
+                                    <td><%= link_to advert.user.complete_name, advert.user %></td>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+        </div>
     <% end %>
-    <td><%= advert.rent %> €</td>
-    <% if advert.user_id == nil %>
-        <td>Error! An advert must have an user !</td>
-    <% else %>
-        <td><%= link_to advert.user.complete_name, advert.user %></td>
-    <% end %>
-    <td><%= advert.nb_of_free_beds %></td>
-    <td><%= link_to 'Show', advert %></td>
-
-    <% if signed_in? && @current_user.admin == true %>
-        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
-        <td><%= button_to 'Destroy', advert, confirm: 'Are you sure?', method: :delete %></td>
-    <% end %>
-    
-  </tr>
-<% end %>
-</table>
+</div>

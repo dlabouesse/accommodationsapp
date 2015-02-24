@@ -122,6 +122,7 @@ div
 .address_field textarea {
     height: 100px;
 }
+/* property form view */
 .property_fiel{
     padding-right: 0px;
 }
@@ -131,4 +132,30 @@ div
 }
 #property_nb_of_rooms, #property_nb_of_bathrooms{
     width: 50px;
+}
+/* advert index view */
+.advert{
+    height: 250px;
+    border: 1px solid #CCCCCC;
+}
+.advert .banner_top,.advert .banner_bottom
+{
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding-top: 3px;
+}
+.advert .banner_top
+{
+    margin-bottom: 188px;
+    text-align: center;
+}
+.advert .author,.advert .price
+{
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.advert .price
+{
+    float: right;
 }
