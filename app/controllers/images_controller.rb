@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-    before_filter :authoriseAdmin
+    before_filter :authorise
+    before_filter :authoriseAdmin, :except => [:create, :new]
   # GET /images
   # GET /images.json
   def index
@@ -42,10 +43,12 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(params[:image])
+    advert = Advert.find_by_user_id(@current_user.id)
+    @image.advert_id=advert.id
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to advert, notice: 'Image was successfully added to this advert.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }

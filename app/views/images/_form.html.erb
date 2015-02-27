@@ -11,15 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="row center">
+  <div class="field input_center">
+    <%= f.file_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :advert_id %><br />
-    <%= f.collection_select :advert_id, Advert.all, :id, :property_address %>
-  </div>
-  <div class="actions">
+</div>
+  <div class="row actions center">
     <%= f.submit %>
   </div>
 <% end %>

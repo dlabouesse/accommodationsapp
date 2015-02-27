@@ -1,11 +1,15 @@
-<h1>Admins manager panel</h1>
+<div class="row">
+    <h1 class="col-xs-12">Admins manager panel</h1>
+</div>
+
+<div class="row">
 <% if @admins.empty? %>
-    <h2>Error, please contact the webmaster!</h2>
+    <h2 class="col-xs-12">Error, please contact the webmaster!</h2>
 <% elsif  @admins.size == 1 %>
-    <h2>There is no other admins than you.</h2>
+    <h2 class="col-xs-12">There is no other admins than you.</h2>
 <% else %>
-<h2>List of other admins than you</h2>
-<table>
+<h2 class="col-xs-12">List of other admins than you</h2>
+<table class="col-xs-12 admins_list">
     <tr>
       <th>Gender</th>
       <th>First name</th>
@@ -28,17 +32,20 @@
     <% end %>
 </table>
 <% end %>
+</div>
 
-<h2>List of current users</h2>
+<div class="row">
+<h2 class="col-xs-12">List of current users</h2>
 <% if @users==nil %>
-    Error, please contact the administrator.
+    <p class="col-xs-12">Error, please contact the administrator.</p>
 <% else %>
-<table>
+<table class="col-xs-12 users_list">
     <tr>
       <th>Gender</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Dob</th>
+      <th>Email</t>
       <th></th>
     </tr>
     <% @users.each do |user| %>
@@ -47,8 +54,10 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.dob %></td>
+        <td><%= user.email %></td>
         <td><%= link_to 'Add admin rights', add_admin_path(:id => user.id) %></td>
       </tr>
     <% end %>
 </table>
 <% end %>
+</div>

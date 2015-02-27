@@ -40,3 +40,6 @@ gem "adroit-age"
 
 # use geocoder
 gem "geocoder"
+
+# use uploader
+gem 'carrierwave'

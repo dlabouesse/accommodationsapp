@@ -1,25 +1,18 @@
-<h1>Listing images</h1>
+<div class="row">
+    <h1 class="col-xs-12">Listing images</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Advert</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row">
+    <table class="images_list col-xs-12">
 
-<% @images.each do |image| %>
-  <tr>
-    <td><%= image_tag(image.name, :width => "200") %></td>
-    <td><%= link_to image.advert.property_address, image.advert %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Image', new_image_path %>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image_tag(image.name, :width => "200") %></td>
+        <td><%= link_to image.advert.property_address, image.advert %></td>
+        <td><%= link_to 'Show', image %></td>
+        <td><%= link_to 'Edit', edit_image_path(image) %></td>
+        <td><%= button_to 'Destroy', image, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+</div>

@@ -1,11 +1,8 @@
-TODO add uploader for images
-
+TODO Create the about page.
 TODO Improve geocoder by showing available properties. (Non-static picture?)
 
-TODO Prevent user to create an advert without property. (Advert : Content, price and n° of beds).
+#Security issues:
+TODO Prevent user to create an advert without property.
 TODO Prevent users to create an new advert when one is currently referring to their property.
 TODO Prevent user to create an account when already connected.
-
-
-
-TODO Create the about page.
+TODO Prevent users to create new images if they don't have already created an advert.

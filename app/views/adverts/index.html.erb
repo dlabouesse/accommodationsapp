@@ -9,7 +9,7 @@
                 <% if advert.images.empty? %>
                     <div style="background: url(/assets/no-photo.png) no-repeat center;  background-size: 45%;" class="advert">
                 <% else %>
-                    <div style="background: url(/assets/<%= advert.images[0].name %>) no-repeat center;  background-size: cover;" class="advert">
+                    <div style="background: url(<%= advert.images[0].name %>) no-repeat center;  background-size: cover;" class="advert">
                 <% end %>
                         <div class="banner_top">
                             <% if advert.property_id == nil %>

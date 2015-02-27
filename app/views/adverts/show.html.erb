@@ -43,5 +43,8 @@
                 <%= image_tag(a.name) %>
             <% end %>
         <% end %>
+        <% if signed_in? && @advert.property_id == @current_user.property_id %>
+            <p><%= link_to 'Add an image', new_image_path %></p>
+        <% end %>
     </div>
 </div>

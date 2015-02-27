@@ -185,20 +185,24 @@ div
     width: 80px;
 }
 /* user index view */
-.users_list tr td, .properties_list tr td
+.users_list tr td, .properties_list tr td, .images_list tr td, .admins_list tr td, .admins_list tr th, .users_list tr th
 {
     padding-right: 20px;
     padding-left: 20px;
 }
-.users_list, .properties_list
+.users_list, .properties_list, .images_list
 {
     margin: auto;
 }
-.users_list tr:nth-child(odd), .properties_list tr:nth-child(odd)
+.users_list tr:nth-child(odd), .properties_list tr:nth-child(odd), .images_list tr:nth-child(odd), .admins_list tr:nth-child(odd)
 {
     background-color: #E9E9E9;
 }
-.users_list tr:nth-child(even), .properties_list tr:nth-child(even)
+.users_list tr:nth-child(even), .properties_list tr:nth-child(even), .images_list tr:nth-child(even), .admins_list tr:nth-child(even)
 {
     background-color: #F9F9F9;
+}
+.input_center input
+{
+    margin:auto;
 }
