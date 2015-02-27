@@ -1,70 +1,65 @@
-<h1><%= @user.gender %> <%= @user.complete_name %></h1>
+<div class="row">
+    <h1 class="col-xs-12"><%= @user.gender %> <%= @user.complete_name %></h1>
+</div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <h2><a href="mailto:<%= @user.email %>"><%= @user.email %></a></h2>
+        <p><em><%= @user.phone %></em></p>
+        <p><%= @user.nationality %>, <%= @user.dob.find_age %> years old.</p>
 
-<p>
-  <b>Phone:</b>
-  <%= @user.phone %>
-</p>
+        <% if @user.biography != "" %>
+            <%= simple_format(@user.biography) %>
+        <% end %>
 
-<p>
-  <b>Biography:</b>
-  <%= simple_format(@user.biography) %>
-</p>
+    </div>
+    <div class="col-md-6">
+        <h2>Property</h2>
+        <p>
+            <% if @user.property_id == nil %>
+                No property yet!
+            <% else %>
+                <%= link_to @user.property.address, @user.property %><br />
 
-<p>
-  <b>Age:</b>
-  <%= @user.dob.find_age %> years old
-</p>
-
-<p>
-  <b>Nationality:</b>
-  <%= @user.nationality %>
-</p>
-
-<p>
-    <b>Property:</b>
-
-    <% if @user.property_id == nil %>
-        <td>No property yet!</td>
-    <% else %>
-        <td><%= link_to @user.property.address, @user.property %></td>
-
-        <% if @roommates.size == 1 %>
-            <%= @user.first_name %> is living alone.
-        <% else %>
-            <%= @user.first_name %> is living with
-            <% @roommates.each do |r| %>
-                <% if r.complete_name != @user.complete_name %>
-                    <%= link_to r.complete_name, r %>
+                <% if @roommates.size == 1 %>
+                    <%= @user.first_name %> is living alone.
+                <% else %>
+                    <%= @user.first_name %> is living with
+                    <% @roommates.each do |r| %>
+                        <% if r.complete_name != @user.complete_name %>
+                            <% if r == @roommates.last %>
+                                <%= link_to r.complete_name, r %>.
+                            <% else %>
+                                <%= link_to r.complete_name, r %>,
+                            <% end %>
+                        <% end %>
+                    <% end %>
                 <% end %>
             <% end %>
-        <% end %>
-    <% end %>
-</p>
-
-<p>
-    <b>You want to live with <%= @user.first_name %>?</b>
-<% if @user.advert == nil %>
-        <%= @user.first_name %> has not created any adverts,
-        <%if @advert != nil %>
-            but an advert is linked to <%= pronoun(@user.gender) %> property! <%= link_to 'Go to the advert!', @advert %>
+        </p>
+        <h2>You want to live with <%= @user.first_name %>?</h2>
+        <p>
+        <% if @user.advert == nil %>
+                <%= @user.first_name %> has not created any adverts,
+                <%if @advert != nil %>
+                    but an advert is linked to <%= pronoun(@user.gender) %> property! <%= link_to 'Go to the advert!', @advert %>
+                <% else %>
+                    and no any adverts are linked to <%= pronoun(@user.gender) %> property. Check back later!
+                <% end %>
         <% else %>
-            and no any adverts are linked to <%= pronoun(@user.gender) %> property. Check back later!
+                <%= @user.first_name %> has created an advert! <%= link_to 'Go to the advert!', @user.advert %>
         <% end %>
-<% else %>
-        <%= @user.first_name %> has created an advert! <%= link_to 'Go to the advert!', @user.advert %>
-<% end %>
-</p>
-<!--
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
--->
+        </p>
+    </div>
+</div>
+
+
+
+
+
 <% if signed_in? && @current_user.id == @user.id %>
-    <%= link_to 'Edit my profile', edit_user_path(@user) %>
+    <hr>
+    <p>
+        <%= link_to 'Edit my profile', edit_user_path(@user) %>
+    </p>
 <% end %>

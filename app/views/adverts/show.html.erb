@@ -25,17 +25,19 @@
             <% end %>
         </p>
         <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?size=450x300&zoom=14&markers="+@advert.property.latitude.to_s+","+@advert.property.longitude.to_s %>
-        <p>
             <%# All people living in the property must can modify/delete the referring advert %>
             <% if signed_in? && @advert.property_id == @current_user.property_id %>
-                <%= link_to 'Edit', edit_advert_path(@advert) %><br />
+            <hr>
+            <p>
+                <%= link_to 'Edit', edit_advert_path(@advert) %>
+            </p>
                 <%= button_to 'Delete my advert', @advert, confirm: 'Are you sure?', method: :delete %>
+
             <% end %>
-        </p>
     </div>
     <div class="col-md-6 advert_show_image">
         <% if @advert.images.empty? %>
-                This advert have no images.
+                This advert have no images yet.
         <% else %>
             <% @advert.images.each do |a| %>
                 <%= image_tag(a.name) %>
