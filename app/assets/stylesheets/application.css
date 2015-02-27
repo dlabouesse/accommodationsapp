@@ -94,11 +94,7 @@ footer {
     background-color: #FF7D12;
     background: linear-gradient(to bottom,  #FF7D12 0%,#FF9A47 100%); /* W3C */
 }
-/*
-div
-{
-    border: 1px solid black;
-}
+
 /* user form view*/
 .field label {
     width: 95px;
@@ -148,6 +144,9 @@ div
 .advert .banner_top
 {
     margin-bottom: 188px;
+}
+.advert .banner_top p
+{
     text-align: center;
 }
 .advert .author,.advert .price

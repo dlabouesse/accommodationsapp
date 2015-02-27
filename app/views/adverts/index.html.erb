@@ -13,20 +13,20 @@
                 <% end %>
                         <div class="banner_top">
                             <% if advert.property_id == nil %>
-                                <td>Error! An advert must have a property !</td>
+                                <p>Error! An advert must have a property !</p>
                             <% else %>
-                                <td><%= link_to advert.property.address, advert %></td>
+                                <p><%= link_to advert.property.address, advert %></p>
                             <% end %>
                         </div>
                         <div class="banner_bottom">
                             <div class="price">
-                                <%= pluralize(advert.nb_of_free_beds, 'bed') %> - <strong><%= advert.rent %> €</strong>
+                                <p><%= pluralize(advert.nb_of_free_beds, 'bed') %> - <strong><%= advert.rent %> €</strong></p>
                             </div>
                             <div class="author">
                                 <% if advert.user_id == nil %>
-                                    <td>Error! An advert must have an user !</td>
+                                    <p>Error! An advert must have an user !</p>
                                 <% else %>
-                                    <td><%= link_to advert.user.complete_name, advert.user %></td>
+                                    <p><%= link_to advert.user.complete_name, advert.user %></p>
                                 <% end %>
                             </div>
                         </div>
