@@ -1,49 +1,22 @@
-<h1>Listing properties</h1>
+<div class="row">
+    <h1 class="col-xs-12">Listing properties</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Address</th>
-    <!--<th>Latitude</th>
-    <th>Longitude</th>-->
-    <th>Kind</th>
-    <!--<th>Furnished</th>
-    <th>Parking</th>
-    <th>Internet</th>
-    <th>Tv</th>
-    <th>Washing machine</th>
-    <th>Dryer</th>
-    <th>Dishwasher</th>-->
-    <th>Nb of rooms</th>
-    <th>Nb of bathrooms</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @properties.each do |property| %>
-  <tr>
-    <td><%= property.address %></td>
-    <!--<td><%= property.latitude %></td>
-    <td><%= property.longitude %></td>-->
-    <td><%= property.kind %></td>
-    <!--<td><%= property.furnished %></td>
-    <td><%= property.parking %></td>
-    <td><%= property.internet %></td>
-    <td><%= property.tv %></td>
-    <td><%= property.washing_machine %></td>
-    <td><%= property.dryer %></td>
-    <td><%= property.dishwasher %></td>-->
-    <td><%= property.nb_of_rooms %></td>
-    <td><%= property.nb_of_bathrooms %></td>
-    <td><%= link_to 'Show', property %></td>
-
-    <% if signed_in? && @current_user.admin == true %>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= button_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
-    <% end %>
-    
-  </tr>
-<% end %>
-</table>
-
-<br />
+<div class="row">
+    <div class="col-md-6 col-md-push-6">
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?size=450x300"+getPropertiesInDublin %>
+    </div>
+    <table class="properties_list col-md-6 col-md-pull-6 col-xs-12">
+        <% @properties.each do |property| %>
+        <tr>
+            <td>
+                <%= link_to property.address, property %><br />
+                <em><%= property.kind %> with <%= pluralize(property.nb_of_rooms, 'room') %> and <%= pluralize(property.nb_of_bathrooms, 'bathroom') %>.</em></td>
+                <% if signed_in? && @current_user.admin == true %>
+                    <td><%= link_to 'Edit', edit_property_path(property) %></td>
+                    <td><%= button_to 'Destroy', property, confirm: 'Are you sure?', method: :delete %></td>
+                <% end %>
+        </tr>
+        <% end %>
+    </table>
+</div>

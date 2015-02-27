@@ -10,6 +10,8 @@
 
         <% if @user.biography != "" %>
             <%= simple_format(@user.biography) %>
+        <% else %>
+            <p><em>No biography has been written by this user.</em></p>
         <% end %>
 
     </div>
