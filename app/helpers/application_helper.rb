@@ -6,4 +6,13 @@ module ApplicationHelper
             @current_user = User.find_by_id(session[:user_id])
         end
     end
+
+    def pronoun(dataitem)
+        if dataitem == "Mr"
+            @pronoun = "his"
+        else
+            @pronoun = "her"
+        end
+        @pronoun
+    end
 end

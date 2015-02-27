@@ -22,12 +22,6 @@ class UsersController < ApplicationController
         @advert = @user.property.advert
     end
 
-    if @user.gender == "Mr"
-        @pronoun = "his"
-    else
-        @pronoun = "her"
-    end
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

@@ -51,9 +51,9 @@
 <% if @user.advert == nil %>
         <%= @user.first_name %> has not created any adverts,
         <%if @advert != nil %>
-            but an advert is linked to <%= @pronoun %> property! <%= link_to 'Go to the advert!', @advert %>
+            but an advert is linked to <%= pronoun(@user.gender) %> property! <%= link_to 'Go to the advert!', @advert %>
         <% else %>
-            and no any adverts are linked to <%= @pronoun %> property. Check back later!
+            and no any adverts are linked to <%= pronoun(@user.gender) %> property. Check back later!
         <% end %>
 <% else %>
         <%= @user.first_name %> has created an advert! <%= link_to 'Go to the advert!', @user.advert %>
