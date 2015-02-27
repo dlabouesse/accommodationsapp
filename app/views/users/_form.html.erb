@@ -51,12 +51,6 @@
         <%= f.text_field :nationality %>
       </div>
   </div>
-  <div class="field row">
-      <div class="field col-xs-12">
-        <%= f.label :property_id %>
-        <%= f.collection_select :property_id, Property.all, :id, :address, :include_blank => true %>
-      </div>
-  </div>
   <div class="row">
       <div class="field col-sm-6">
         <%= f.label :password %>

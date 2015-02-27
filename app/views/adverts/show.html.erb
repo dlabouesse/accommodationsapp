@@ -11,9 +11,9 @@
                 Created <%= time_ago_in_words(@advert.created_at) %> ago by <%= link_to @advert.user.complete_name, @advert.user %>
             <% end %>
         </h2>
-        <p>
+
             <%= simple_format(@advert.content) %>
-        </p>
+
         <h2>
             <%= pluralize(@advert.nb_of_free_beds, 'bed') %> for <strong><%= @advert.rent %> €</strong>
         </h2>

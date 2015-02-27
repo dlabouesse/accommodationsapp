@@ -1,94 +1,112 @@
-<h1>Property details</h1>
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <h1 class="col-xs-12">Property details</h1>
+</div>
 
-<p>
-  <b>Address:</b>
-  <%= @property.address %>
-</p>
-<!--
-<p>
-  <b>Latitude:</b>
-  <%= @property.latitude %>
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <h2><%= @property.kind %> with <%= pluralize(@property.nb_of_rooms, 'room') %> and <%= pluralize(@property.nb_of_bathrooms, 'bathroom') %>.</h2>
+        <%= simple_format(@property.address) %>
 
-<p>
-  <b>Longitude:</b>
-  <%= @property.longitude %>
-</p>
--->
-<p>
-  <b>Kind:</b>
-  <%= @property.kind %>
-</p>
+        <p>
+            <% if @property.users.empty? %>
+                    Nobody is living here.
+            <% else %>
+                <% @property.users.each do |u| %>
+                    <% if @property.users.size > 1 %>
+                        <% if u == @property.users.last %>
+                            and <%= link_to u.complete_name, u %> are living here.
+                        <% else %>
+                            <%= link_to u.complete_name, u %>,
+                        <% end %>
+                    <% else %>
+                        <%= link_to u.complete_name, u %> is living here.
+                    <% end %>
+                <% end %>
+            <% end %>
+        </p>
 
-<p>
-  <b>Furnished:</b>
-  <%= @property.furnished %>
-</p>
+        <h2>Want to join <%= @pronoun %>?</h2>
+        <p>
+            <% if @property.advert == nil %>
+                Unfortunately, no adverts are currently referring to this property. Check back later!
+            <% else %>
+                <%= pluralize(@property.advert.nb_of_free_beds, 'bed is', 'beds are') %> available!
+                <%= link_to 'Go to the advert!', @property.advert %>
+            <% end %>
+        </p>
 
-<p>
-  <b>Parking:</b>
-  <%= @property.parking %>
-</p>
+        <% if signed_in? && @current_user.property_id == @property.id %>
+        <p>
+            <%= link_to 'Edit my property', edit_property_path(@property) %><br />
+            <%= link_to 'Leave this property', unlink_property_path(:id => @property.id) %>
+        </p>
+        <% end %>
+    </div>
 
-<p>
-  <b>Internet:</b>
-  <%= @property.internet %>
-</p>
+    <div class="col-md-6">
+        <div class="row">
+            <p class="property_facilities col-xs-6">
+                <% if @property.furnished == true %>
+                    <%= image_tag("true_tick.png", width: "100") %>
+                <% else %>
+                    <%= image_tag("wrong_tick.png", width: "100") %>
+                <% end %>
+                <b>Furnished</b>
+            </p>
 
-<p>
-  <b>Tv:</b>
-  <%= @property.tv %>
-</p>
+            <p class="property_facilities col-xs-6">
+              <% if @property.parking == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Parking</b>
+            </p>
 
-<p>
-  <b>Washing machine:</b>
-  <%= @property.washing_machine %>
-</p>
+            <p class="property_facilities col-xs-6">
+              <% if @property.internet == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Internet</b>
+            </p>
 
-<p>
-  <b>Dryer:</b>
-  <%= @property.dryer %>
-</p>
+            <p class="property_facilities col-xs-6">
+              <% if @property.tv == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Tv</b>
+            </p>
 
-<p>
-  <b>Dishwasher:</b>
-  <%= @property.dishwasher %>
-</p>
+            <p class="property_facilities col-xs-6">
+              <% if @property.washing_machine == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Washing machine</b>
+            </p>
 
-<p>
-  <b>Nb of rooms:</b>
-  <%= @property.nb_of_rooms %>
-</p>
+            <p class="property_facilities col-xs-6">
+              <% if @property.dryer == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Dryer</b>
+            </p>
 
-<p>
-  <b>Nb of bathrooms:</b>
-  <%= @property.nb_of_bathrooms %>
-</p>
-
-<p>
-  <b>Living here:</b>
-  <% if @property.users.empty? %>
-          Nobody is living here.
-  <% else %>
-      <% @property.users.each do |u| %>
-      <%= link_to u.complete_name, u %>
-      <% end %>
-  <% end %>
-</p>
-
-<p>
-    <b>Want to join <%= @pronoun %>?</b>
-
-  <% if @property.advert == nil %>
-          Unfortunately, no adverts are currently referring to this property. Check back later!
-  <% else %>
-        <%= pluralize(@property.advert.nb_of_free_beds, 'bed is', 'beds are') %> available!
-      <%= link_to 'Go to the advert!', @property.advert %>
-  <% end %>
-</p>
-
-<% if signed_in? && @current_user.property_id == @property.id %>
-    <%= link_to 'Edit my property', edit_property_path(@property) %><br />
-    <%= link_to 'Leave this property', unlink_property_path(:id => @property.id) %>
-<% end %>
+            <p class="property_facilities col-xs-6">
+              <% if @property.dishwasher == true %>
+                  <%= image_tag("true_tick.png", width: "100") %>
+              <% else %>
+                  <%= image_tag("wrong_tick.png", width: "100") %>
+              <% end %>
+              <b>Dishwasher</b>
+            </p>
+        </div>
+    </div>
+</div>

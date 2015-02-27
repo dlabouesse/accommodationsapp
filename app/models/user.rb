@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
 
     def default_values
         self.admin = false
+        self.property_id = nil
         true
     end
 

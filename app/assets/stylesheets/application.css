@@ -171,3 +171,12 @@ div
     width: 100%;
     margin: 5px;
 }
+/* property show view */
+.property_facilities
+{
+    height: 100px;
+}
+.property_facilities b
+{
+    height: 100px;
+}
