@@ -15,15 +15,18 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <div class="field">
-    <%= f.label :rent %><br />
-    <%= f.number_field :rent, :in => 1...10000 %> €
+  <div class="row">
+      <div class="advert_field col-xs-6">
+        <%= f.label :rent %>
+        <%= f.number_field :rent, :in => 1...10000 %> €
+      </div>
+      <div class="advert_field col-xs-6">
+        <%= f.label :nb_of_free_beds %>
+        <%= f.number_field :nb_of_free_beds, :in => 1...10 %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :nb_of_free_beds %><br />
-    <%= f.number_field :nb_of_free_beds, :in => 1...10 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row actions center">
+      <%= f.submit %>
   </div>
 <% end %>

@@ -16,50 +16,50 @@
     <%= f.text_area :address %>
   </div>
   <div class="row">
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
         <%= f.label :kind %>
         <%= f.select(:kind, options_for_select([["House", "House"],["Apartment", "Apartment"],["Other", "Other"]])) %>
       </div>
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :furnished %>
         <%= f.label :furnished %>
       </div>
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :parking %>
           <%= f.label :parking %>
       </div>
   </div>
   <div class="row">
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :internet %>
           <%= f.label :internet %>
       </div>
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :tv %>
           <%= f.label :tv %>
       </div>
   </div>
   <div class="row">
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :washing_machine %>
           <%= f.label :washing_machine, 'Washer' %>
       </div>
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :dryer %>
           <%= f.label :dryer %>
       </div>
-      <div class="property_fiel col-xs-4">
+      <div class="property_field col-xs-4">
           <%= f.check_box :dishwasher %>
           <%= f.label :dishwasher %>
       </div>
   </div>
 
   <div class="row">
-      <div class="property_fiel col-xs-6">
+      <div class="property_field col-xs-6">
         <%= f.label :nb_of_rooms %>
         <%= f.number_field :nb_of_rooms, :in => 1...10 %>
       </div>
-      <div class="property_fiel col-xs-6">
+      <div class="property_field col-xs-6">
         <%= f.label :nb_of_bathrooms %>
         <%= f.number_field :nb_of_bathrooms, :in => 1...10 %>
       </div>

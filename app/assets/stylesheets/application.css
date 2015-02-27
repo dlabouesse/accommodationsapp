@@ -123,10 +123,10 @@ div
     height: 100px;
 }
 /* property form view */
-.property_fiel{
+.property_field{
     padding-right: 0px;
 }
-.property_fiel label {
+.property_field label {
     width: auto;
     word-break:break-all;
 }
@@ -179,4 +179,8 @@ div
 .property_facilities b
 {
     height: 100px;
+}
+.advert_field input
+{
+    width: 80px;
 }
