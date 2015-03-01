@@ -21,7 +21,11 @@ module ApplicationHelper
 
         @markers =""
         properties.each do |prop|
-            @markers = @markers+"&markers="+prop.latitude.to_s+","+prop.longitude.to_s
+            if prop.advert == nil
+                @markers = @markers+"&markers=label:0|"+prop.latitude.to_s+","+prop.longitude.to_s
+            else
+                @markers = @markers+"&markers=label:"+prop.advert.nb_of_free_beds.to_s+"|"+prop.latitude.to_s+","+prop.longitude.to_s
+            end
         end
         @markers
     end

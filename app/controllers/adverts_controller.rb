@@ -47,7 +47,7 @@ class AdvertsController < ApplicationController
 
     respond_to do |format|
       if @advert.save
-        format.html { redirect_to @advert, notice: 'Advert was successfully created.' }
+        format.html { redirect_to @advert, notice: 'Advert was successfully created. You can now add images!' }
         format.json { render json: @advert, status: :created, location: @advert }
       else
         format.html { render action: "new" }
